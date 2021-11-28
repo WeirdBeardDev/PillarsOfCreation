@@ -16,7 +16,7 @@ TBD
 
 ## Implementation Information
 ### Technologies
-* .NET 6
-* Blazor WebAssembly 6
-* Bootstrap 5.1.3
-* Bootswatch - Darkly theme 5.1.3
+* [.NET](https://dotnet.microsoft.com) 6
+* [Blazor WebAssembly 6](https://docs.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-6.0)
+* [Bootstrap](https://getbootstrap.com) 5.1.3
+* [Bootswatch](https://bootswatch.com) - [Darkly](https://bootswatch.com/darkly/) theme 5.1.3
