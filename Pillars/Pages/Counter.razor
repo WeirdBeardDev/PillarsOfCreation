@@ -11,8 +11,11 @@
 @code {
     private int currentCount = 0;
 
-    private void IncrementCount()
+    private void IncrementCount(MouseEventArgs e)
     {
-        currentCount++;
+        if (e.CtrlKey)
+            currentCount--;
+        else
+            currentCount++;
     }
 }
