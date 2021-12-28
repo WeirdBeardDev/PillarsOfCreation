@@ -1,0 +1,49 @@
+﻿#stickyheader {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+    #stickyheader::before {
+        content: '';
+        width: 100%;
+        height: 1px;
+        position: absolute;
+        top: -1px;
+        z-index: -1;
+    }
+
+    #stickyheader + #stickyheader::after {
+        content: '';
+        width: 1px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: -1px;
+        z-index: -1;
+    }
+
+#stickyfooter {
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+}
+
+    #stickyfooter::after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        position: absolute;
+        bottom: -1px;
+        z-index: -1;
+    }
+
+    #stickyfooter + #stickyfooter::before {
+        content: '';
+        width: 1px;
+        height: 100%;
+        position: absolute;
+        bottom: 0;
+        left: -1px;
+        z-index: -1;
+    }
