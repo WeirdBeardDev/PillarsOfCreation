@@ -1,0 +1,15 @@
+﻿@using System
+@using System.Threading
+@using Microsoft.AspNetCore.Components
+
+
+@code {
+    [Parameter] public double TimeInSeconds { get; set; }
+    [Parameter] public EventCallback Tick { get; set; } = default!;
+
+    protected override void OnInitialized()
+    {
+        var timer = new Timer((_) => InvokeAsync(() => Tick.InvokeAsync()), null, TimeSpan.FromSeconds(TimeInSeconds), Timeout.InfiniteTimeSpan);
+        Console.WriteLine("Timer initialized...");
+    }
+}

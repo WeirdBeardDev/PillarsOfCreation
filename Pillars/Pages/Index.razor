@@ -8,6 +8,11 @@ Welcome to your new <button class="btn btn-link btn-primary" type="button">app.<
 
 <h1>Testing</h1> 
 <p>I need a long page to test the sticky header and footer.</p>
+<DismissibleAlert @bind-Show="@ShowAlert" @ref="_alert">
+    <span class="oi oi-check mr-2" aria-hidden="true"></span>
+    <strong>Blazor is kewl.</strong>
+</DismissibleAlert>
+<TimerBar TimeInSeconds="5" Tick="@(() => _alert?.Dismiss())" />
 <br />
 
 <h1>Lorem Ipsum 1</h1> 
@@ -43,3 +48,14 @@ Praesent non risus eu lacus consequat porttitor eget at arcu. Morbi eget digniss
 Proin eget lectus sagittis velit posuere posuere at ac augue. Phasellus porta aliquet diam, a mattis enim viverra ac. Duis cursus nisl eget aliquam efficitur. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris felis justo, venenatis eu mauris vitae, lobortis ullamcorper augue. Morbi ac mollis lacus. Ut maximus ante arcu, at tristique metus placerat a. In vulputate eget felis et consectetur. Quisque orci mi, rhoncus nec ex eget, vestibulum convallis enim. Donec a congue felis, vel congue enim. Aliquam consequat semper justo, vel fringilla lectus vehicula eget. Vivamus sagittis nulla nec nisl facilisis rutrum.
 <br />
 
+@code {
+    private DismissibleAlert _alert = default!;
+
+    public bool ShowAlert { get; set; } = true;
+
+    public void ToggleAlert() 
+    {
+        ShowAlert = !ShowAlert;
+        Console.WriteLine($"ShowAlert: {ShowAlert}");
+    }
+}
