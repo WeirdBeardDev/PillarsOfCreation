@@ -5,8 +5,8 @@
         <NavMenu />
     </div>
 *@    
-    <main>
-        <StickyBar Bar="StickyBar.BarType.Header" />
+    <header class="page-header"><StickyBar Bar="StickyBar.BarType.Header" /></header>
+    <main class="page-body">
         <div class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Navbar</a>
@@ -40,6 +40,6 @@
         <article class="container content px-4">
             @Body
         </article>
-        <StickyBar Bar="StickyBar.BarType.Footer" />
     </main>
+    <footer class="page-footer"><StickyBar Bar="StickyBar.BarType.Footer" /></footer>
 </div>

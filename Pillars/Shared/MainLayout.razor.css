@@ -1,33 +1,16 @@
 .page {
-    position: relative;
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-main {
-    flex: 1;
+.page-header, .page-footer {
+    flex-shrink: 0;
+    position: sticky;
+    z-index: 10;
 }
 
-@media (max-width: 640.98px) {
-    .btn-link {
-        margin-left: 0;
-    }
-}
-
-@media (min-width: 641px) {
-    .page {
-        flex-direction: row;
-    }
-
-    .sidebar {
-        width: 250px;
-        height: 100vh;
-        position: sticky;
-        top: 0;
-    }
-
-    article {
-        padding-left: 1rem !important;
-        padding-right: 1.5rem !important;
-    }
+.page-body {
+    flex-grow: 1;
+    overflow: auto;
 }
