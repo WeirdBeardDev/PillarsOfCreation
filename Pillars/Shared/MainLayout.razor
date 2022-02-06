@@ -1,12 +1,12 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
+<div>
 @*    <div class="sidebar">
         <NavMenu />
     </div>
 *@    
-    <header class="page-header"><StickyBar Bar="StickyBar.BarType.Header" /></header>
-    <main class="page-body">
+    <header class="fixed-top"><Tribar /></header>
+    <main class="container-fluid fixed-padding-top fixed-padding-bottom" >
         <div class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Navbar</a>
@@ -41,5 +41,5 @@
             @Body
         </article>
     </main>
-    <footer class="page-footer"><StickyBar Bar="StickyBar.BarType.Footer" /></footer>
+    <footer class="fixed-bottom"><Tribar /></footer>
 </div>
