@@ -10,7 +10,7 @@ public class AttributeScore
     #endregion Members
 
     #region Properties
-    private double RawScore { get => _baseScore; set => _baseScore = value; }
+    public double BaseScore { get => _baseScore; set => _baseScore = value; }
     public double Score { get => ComputeScore(_baseScore); }
     #endregion Properties
 

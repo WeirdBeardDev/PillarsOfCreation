@@ -20,4 +20,4 @@ TBD
 * [Blazor WebAssembly 6](https://docs.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-6.0)
 * [Bootstrap](https://getbootstrap.com) 5.1.3
 * [Bootswatch](https://bootswatch.com) - [Darkly](https://bootswatch.com/darkly/) theme 5.1.3
-* Google Fonts [Roboto](https://fonts.google.com/specimen/Roboto)
+* [Blazored - LocalStorage](https://www.nuget.org/packages/Blazored.LocalStorage/) v4.2.0
