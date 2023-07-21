@@ -16,8 +16,10 @@ TBD
 
 ## Implementation Information
 ### Technologies
-* [.NET](https://dotnet.microsoft.com) 6
-* [Blazor WebAssembly 6](https://docs.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-6.0)
+* [.NET](https://dotnet.microsoft.com) 7
+* [Blazor WebAssembly 7](https://docs.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-7.0)
+* [Blazored - LocalStorage](https://www.nuget.org/packages/Blazored.LocalStorage/) v4.3.0
+
+Need to update and switch to nuget
 * [Bootstrap](https://getbootstrap.com) 5.1.3
 * [Bootswatch](https://bootswatch.com) - [Darkly](https://bootswatch.com/darkly/) theme 5.1.3
-* [Blazored - LocalStorage](https://www.nuget.org/packages/Blazored.LocalStorage/) v4.2.0
