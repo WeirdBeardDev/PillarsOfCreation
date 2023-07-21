@@ -11,3 +11,5 @@ A list of all changes made to the application using the following descriptors.
 # Prerelease Work
 ## July 2023
 * [bts] Reorganize the project and update to .NET 7
+* [upd] Update Bootstrap to v5.3.0
+* [bts] Change dev container name
