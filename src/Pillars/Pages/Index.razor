@@ -1,0 +1,59 @@
+﻿@page "/"
+
+@inject IGameService _game
+
+Player Storage: @HasPlayer &nbsp;
+
+@if (HasPlayer==false)
+{
+    <button class="btn btn-primary btn-sm" @onclick="CreatePlayerSlotAsync" type="button">Create Player Slot</button>
+}
+else
+{
+    <br />
+}
+
+@*<DismissibleAlert @bind-Show="@ShowAlert" @ref="_alert">
+    <span class="oi oi-check mr-2" aria-hidden="true"></span>
+    <strong>Blazor is kewl.</strong>
+</DismissibleAlert>
+<TimerBar TimeInSeconds="5" Tick="@(() => _alert?.Dismiss())" />*@
+<br />
+
+
+@code {
+    private DismissibleAlert _alert = default!;
+
+    public bool ShowAlert { get; set; } = true;
+    private bool HasPlayer { get; set; }
+
+    public void ToggleAlert() 
+    {
+        ShowAlert = !ShowAlert;
+        Console.WriteLine($"ShowAlert: {ShowAlert}");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        HasPlayer = await _game.DoesSaveExist();
+        if (!HasPlayer)
+        {
+            Console.WriteLine($"HasPlayer: {HasPlayer}");
+            await _game.CreateSaveSlotAsync();
+            HasPlayer = true;
+        }
+        else
+        {
+            await _game.LoadAsync();
+        }
+        return;
+    }
+
+    public async void CreatePlayerSlotAsync()
+    {
+        await _game.SaveAsync();
+        HasPlayer = true;
+        StateHasChanged();
+    }
+}
