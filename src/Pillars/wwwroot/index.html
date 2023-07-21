@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Pillars of Creation</title>
     <base href="/" />
-    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.1.3/dist/darkly/bootstrap.min.css" rel="stylesheet" />
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/app.css" rel="stylesheet" />
     <link href="Pillars.styles.css" rel="stylesheet" />
     <link href="manifest.json" rel="manifest" />
@@ -25,8 +25,10 @@
         </div>
         <div class="row">
             <div class="col text-center g-5">
-                
-                <span class="badge rounded-pill bg-info fs-3"><span class="col text-center spinner-border text-warning fs-6" role="status"></span> Please wait while the game loads..</span>
+
+                <span class="badge rounded-pill bg-info fs-3"><span
+                        class="col text-center spinner-border text-warning fs-6" role="status"></span> Please wait while
+                    the game loads..</span>
             </div>
         </div>
     </div>
@@ -38,7 +40,7 @@
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
