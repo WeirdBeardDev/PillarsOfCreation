@@ -15,7 +15,9 @@ Commit messages should use [conventional commits](https://www.conventionalcommit
 | test:     | adding missing tests or correcting existing test                                                    |
 
 ## Update Version
-1. run `versionize`
+To preview the changelog run `versionize -d --skip-dirty`; otherwise run the following to update the version.
+
+1. `versionize`
 1. `git push --follow-tags origin main`
 
 # Prerelease Work
