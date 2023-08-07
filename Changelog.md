@@ -1,15 +1,25 @@
 # Changelog
-A list of all changes made to the application using the following descriptors.
+Commit messages should use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) with the descriptors listed below.  For the scope please use the name of the feature.
 
-* **[bts]**: Behind The Scenes: these help organize the project better but have no coding impacts
-* **[del]**: Delete: these code changes results in one or more deleted files
-* **[doc]**: Documentation: these update the documenation for the project but have no coding impacts
-* **[fix]**: Fix: these fix bugs
-* **[new]**: New: these add new features
-* **[upd]**: Update: these update existing features
+| Desriptor | Definition                                                                                          |
+| :-------- | :-------------------------------------------------------------------------------------------------- |
+| build:    | changes that effect the build system or external dependencies (scopes: npm, dotnet)                 |
+| chore:    | miscellaneous commits, (ex: modifying `.gitignore`, etc)                                            |
+| ci:       | changes to the CI configuration files and scripts                                                   |
+| docs:     | documentation only changes                                                                          |
+| feat:     | a new feature (these bump the MINOR version number)                                                 |
+| fix:      | a bug fix (these bump the PATCH version number)                                                     |
+| perf:     | a code change that improves performance                                                             |
+| refactor: | a code change that neither fixes a bug nor adds a feature, instead it improves the flow of the code |
+| style:    | changes that do not effect the meaning of the code (ex: whitespace, formatting, etc.)               |
+| test:     | adding missing tests or correcting existing test                                                    |
+
+## Update Version
+1. run `versionize`
+1. `git push --follow-tags origin main`
 
 # Prerelease Work
 ## July 2023
-* [bts] Reorganize the project and update to .NET 7
 * [upd] Update Bootstrap to v5.3.0
-* [bts] Change dev container name
+
+
