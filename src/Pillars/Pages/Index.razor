@@ -13,25 +13,11 @@ else
     <br />
 }
 
-@*<DismissibleAlert @bind-Show="@ShowAlert" @ref="_alert">
-    <span class="oi oi-check mr-2" aria-hidden="true"></span>
-    <strong>Blazor is kewl.</strong>
-</DismissibleAlert>
-<TimerBar TimeInSeconds="5" Tick="@(() => _alert?.Dismiss())" />*@
 <br />
 
 
 @code {
-    private DismissibleAlert _alert = default!;
-
-    public bool ShowAlert { get; set; } = true;
     private bool HasPlayer { get; set; }
-
-    public void ToggleAlert() 
-    {
-        ShowAlert = !ShowAlert;
-        Console.WriteLine($"ShowAlert: {ShowAlert}");
-    }
 
     protected override async Task OnInitializedAsync()
     {
