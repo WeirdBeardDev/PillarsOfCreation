@@ -28,8 +28,7 @@ To preview the changelog run `versionize -di --skip-dirty`; otherwise run the fo
 ## July 2023
 * [upd] Update Bootstrap to v5.3.0
 
-
-
+---
 
 <a name="0.0.0"></a>
 ## [0.0.0](https://www.github.com/WeirdBeardDev/PillarsOfCreation/releases/tag/v0.0.0) (2023-8-13)
