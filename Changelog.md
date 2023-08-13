@@ -1,6 +1,8 @@
 # Changelog
 Commit messages should use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) with the descriptors listed below.  For the scope please use the name of the feature.
 
+Breaking changes **must** contain a line prefixed with `BREAKING CHANGE:` so versionize recognizes a breaking change.  Breaking changes can use any commit type.
+
 | Desriptor | Definition                                                                                          |
 | :-------- | :-------------------------------------------------------------------------------------------------- |
 | build:    | changes that effect the build system or external dependencies (scopes: npm, dotnet)                 |
@@ -15,9 +17,11 @@ Commit messages should use [conventional commits](https://www.conventionalcommit
 | test:     | adding missing tests or correcting existing test                                                    |
 
 ## Update Version
-To preview the changelog run `versionize -d --skip-dirty`; otherwise run the following to update the version.
+Use [Versionize](https://www.nuget.org/packages/Versionize/) to automatically update the project's verison.
 
-1. `versionize`
+To preview the changelog run `versionize -di --skip-dirty`; otherwise run the following to update the version.
+
+1. `versionize -i`  
 1. `git push --follow-tags origin main`
 
 # Prerelease Work
