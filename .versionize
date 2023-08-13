@@ -1,5 +1,6 @@
 {
-	"changelogAll": true,
+	"changelogAll": false,
+	"ignoreInsignificantCommits": true,
 	"changelog": {
 		"header": "Changelog",
 		"sections": [
