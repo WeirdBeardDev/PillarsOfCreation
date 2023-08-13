@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "src/Pillars"
+		}
+	],
+	"settings": {
+		"dotnet.defaultSolution": "PillarsOfCreation.sln",
+		"files.exclude": {
+			"**/*.csproj.user": true,
+			"**/bin": true,
+			"**/obj": true
+		}
+	}
+}
