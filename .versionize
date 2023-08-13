@@ -1,6 +1,6 @@
 {
 	"changelogAll": false,
-	"workingDir": "./src/Pillars",
+	"workingDir": "./src/",
 	"changelog": {
 		"header": "Changelog",
 		"sections": [
