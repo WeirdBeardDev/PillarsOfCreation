@@ -1,6 +1,6 @@
 {
 	"changelogAll": false,
-	"ignoreInsignificantCommits": true,
+	"workingDir": "./src/Pillars",
 	"changelog": {
 		"header": "Changelog",
 		"sections": [
