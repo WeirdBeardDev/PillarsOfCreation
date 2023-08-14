@@ -21,7 +21,7 @@ public class GameService : IGameService
     #region Methods
     public async Task LoadAsync() => await LoadCreatorAsync();
     public async Task SaveAsync() => await SaveCreatorAsync();
-    public async Task<bool> DoesSaveExist() => await Storage.ContainKeyAsync(Data.PlayerName);
+    public async Task<bool> DoesSaveExistAsync() => await Storage.ContainKeyAsync(Data.PlayerName);
     public async Task CreateSaveSlotAsync()
     {
         Creator = new();

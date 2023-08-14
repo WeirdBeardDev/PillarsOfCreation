@@ -9,7 +9,7 @@ public interface IGameService
     #region Methods
     Task LoadAsync();
     Task SaveAsync();
-    Task<bool> DoesSaveExist();
+    Task<bool> DoesSaveExistAsync();
     Task CreateSaveSlotAsync();
     #endregion Methods
 }
