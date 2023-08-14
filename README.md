@@ -18,5 +18,5 @@ TBD
 ### Technologies
 * [.NET](https://dotnet.microsoft.com) 7
 * [Blazor WebAssembly 7](https://docs.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-7.0)
-* [Blazored - LocalStorage](https://www.nuget.org/packages/Blazored.LocalStorage/) v4.3.0
-* [Bootstrap](https://getbootstrap.com) 5.3.0 (via LibMan)
+* [Blazored - LocalStorage](https://www.nuget.org/packages/Blazored.LocalStorage/) v4.4.0
+* [Bootstrap](https://getbootstrap.com) 5.3.1 (via LibMan)
