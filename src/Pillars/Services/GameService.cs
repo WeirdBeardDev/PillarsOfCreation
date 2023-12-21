@@ -2,7 +2,7 @@
 
 namespace Wbd.Pillars.Services;
 
-public class GameService : IGameService
+public class GameService(ILocalStorageService storageService) : IGameService
 {
     #region Events
     public event EventHandler OnLoad = default!;
@@ -11,11 +11,10 @@ public class GameService : IGameService
 
     #region Properties
     public Creator Creator { get; private set; } = new();
-    private ILocalStorageService Storage { get; set; }
+    private ILocalStorageService Storage { get; set; } = storageService;
     #endregion Properties
 
     #region Ctor
-    public GameService(ILocalStorageService storageService) => Storage = storageService;
     #endregion Ctor
 
     #region Methods
