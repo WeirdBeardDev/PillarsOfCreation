@@ -47,3 +47,9 @@ Breaking changes **must** contain a line prefixed with `BREAKING CHANGE:` so [ve
 | style:    | changes that do not effect the meaning of the code (ex: whitespace, formatting, etc.)               |
 | test:     | adding missing tests or correcting existing test                                                    |
 
+### Feature List
+
+| Feature | Definition                                               |
+| :------ | :------------------------------------------------------- |
+| Save    | Anything dealing with the loading and saving of the game |
+
