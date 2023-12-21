@@ -1,6 +1,9 @@
 # Todo Ideas
+## General Ideas
+
+
 ## Current Work
-- TBD
+- TODO move non-changelog items to the readme
 - 
 
 ## Backlog
