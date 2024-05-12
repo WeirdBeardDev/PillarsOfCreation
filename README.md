@@ -26,7 +26,7 @@ To preview the changelog run `versionize -di --skip-dirty`; otherwise run the fo
 ### Technologies
 * [.NET](https://dotnet.microsoft.com) 8
 * [Blazor WebAssembly 8](https://docs.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-8.0)
-* [Blazored - LocalStorage](https://www.nuget.org/packages/Blazored.LocalStorage/) v4.4.0
+* [Blazored - LocalStorage](https://www.nuget.org/packages/Blazored.LocalStorage/) v4.5.0
 * [Bootstrap](https://getbootstrap.com) 5.3.1 (via LibMan)
 
 ### Reading the Commit History
