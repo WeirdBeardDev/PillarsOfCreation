@@ -6,7 +6,7 @@
     "configurations": [
         {
             "type": "blazorwasm",
-            "name": "Launch and Debug Blazor WebAssembly Application",
+            "name": "Launch and Debug Blazor WASM",
             "request": "launch"
         }
     ]
