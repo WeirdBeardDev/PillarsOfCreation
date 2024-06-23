@@ -3,5 +3,6 @@
 [Serializable]
 public class Creator
 {
-    public List<Character> Characters { get; set; } = new();
+    public int LastActiveSlot { get; set; } = -1;
+    public List<Character> Characters { get; set; } = [new(), new(), new(), new()];
 }

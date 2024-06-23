@@ -20,6 +20,10 @@ To preview the changelog run `versionize -di --skip-dirty`; otherwise run the fo
 1. `versionize -i`  
 1. `git push --follow-tags origin main`
 
+Help getting all the commit messages since the last tag I created an alias in my `.bashrc` file.  Add the following line to the file.
+`git log $(git describe --tags --abbrev=0)..HEAD --all --pretty=format:"%s"`
+Then on bash use `git-loglasttag` with a `> commit_message.txt` to outut the commit messages to a file.
+
 ---
 
 ## Implementation Information
@@ -49,9 +53,14 @@ Breaking changes **must** contain a line prefixed with `BREAKING CHANGE:` so [ve
 
 ### Feature List
 
-| Feature | Definition                                               |
-| :------ | :------------------------------------------------------- |
-| General | Anything that doesn't fit into the other categories      |
-| Logging | Anything dealing with logging in the game                |
-| Save    | Anything dealing with the loading and saving of the game |
+| Feature   | Definition                                               |
+| :------   | :------------------------------------------------------- |
+| Character | Anything dealing with the player's character             |
+| General   | Anything that doesn't fit into the other categories      |
+| Logging   | Anything dealing with logging in the game                |
+| Save      | Anything dealing with the loading and saving of the game |
 
+
+
+# Icons
+<a target="_blank" href="https://icons8.com/icon/362/trash-can">Trash Can</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>

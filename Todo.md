@@ -9,6 +9,6 @@
 - end of list
 
 ## Backlog
-- TBD
-- 
+- add a credits page
+- add the list of icons from the readme.md to the credits page
 

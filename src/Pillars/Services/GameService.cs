@@ -25,7 +25,7 @@ public class GameService(ILocalStorageService storageService, ILogger<GameServic
     public async Task CreateSaveSlotAsync()
     {
         Creator = new();
-        Logger.LogInformation($"New empty character created.");
+        Logger.LogInformation($"New empty character created with {Creator.Characters.Count} slots.");
         await SaveCreatorAsync();
     }
     #endregion Methods
@@ -34,8 +34,8 @@ public class GameService(ILocalStorageService storageService, ILogger<GameServic
     private async Task LoadCreatorAsync()
     {
         var c = await Storage.GetItemAsync<Creator>(Data.PlayerName);
-        Creator = c;
-        Logger.LogInformation($"Creator loaded, {Creator?.Characters.Count ?? 0} characters in save.");
+        Creator = c ?? new();
+        Logger.LogInformation($"Creator loaded, {Creator.Characters.Count} characters in save.");
         NotifyOnLoad();
     }
     private async Task SaveCreatorAsync()

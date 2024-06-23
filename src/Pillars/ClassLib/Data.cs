@@ -1,8 +1,9 @@
 ﻿namespace Wbd.Pillars.ClassLib;
 
-public static class Data
+public class Data
 {
     #region Constants
     public const string PlayerName = "Creator";
+    public const string NewCharacterName = "New Character";
     #endregion Constants
 }
