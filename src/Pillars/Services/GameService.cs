@@ -2,7 +2,7 @@
 
 namespace Wbd.Pillars.Services;
 
-public class GameService(ILocalStorageService storageService) : IGameService
+public class GameService(ILocalStorageService storageService, ILogger<GameService> logger) : IGameService
 {
     #region Events
     public event EventHandler OnLoad = default!;
@@ -12,6 +12,7 @@ public class GameService(ILocalStorageService storageService) : IGameService
     #region Properties
     public Creator Creator { get; private set; } = new();
     private ILocalStorageService Storage { get; set; } = storageService;
+    private ILogger Logger { get; set; } = logger;
     #endregion Properties
 
     #region Ctor
@@ -24,7 +25,7 @@ public class GameService(ILocalStorageService storageService) : IGameService
     public async Task CreateSaveSlotAsync()
     {
         Creator = new();
-        Console.WriteLine($"New empty character created.");
+        Logger.LogInformation($"New empty character created.");
         await SaveCreatorAsync();
     }
     #endregion Methods
@@ -34,7 +35,7 @@ public class GameService(ILocalStorageService storageService) : IGameService
     {
         var c = await Storage.GetItemAsync<Creator>(Data.PlayerName);
         Creator = c;
-        Console.WriteLine($"Creator loaded, {Creator?.Characters.Count ?? 0} characters in save.");
+        Logger.LogInformation($"Creator loaded, {Creator?.Characters.Count ?? 0} characters in save.");
         NotifyOnLoad();
     }
     private async Task SaveCreatorAsync()

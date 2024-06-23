@@ -52,5 +52,6 @@ Breaking changes **must** contain a line prefixed with `BREAKING CHANGE:` so [ve
 | Feature | Definition                                               |
 | :------ | :------------------------------------------------------- |
 | General | Anything that doesn't fit into the other categories      |
+| Logging | Anything dealing with logging in the game                |
 | Save    | Anything dealing with the loading and saving of the game |
 

@@ -1,4 +1,5 @@
 ﻿@page "/choosecharacter"
+@inject ILogger<CharacterSelector> _logger
 
 <PageTitle>Choose Character</PageTitle>
 
@@ -22,5 +23,9 @@
 
 
 @code {
-
+    protected override void OnInitialized()
+    {
+        _logger.LogInformation("ChooseCharacter Page Initialized");
+        base.OnInitialized();
+    }
 }
