@@ -5,6 +5,10 @@
     {
       "library": "bootstrap@5.3.3",
       "destination": "wwwroot/css/bootstrap/"
+    },
+    {
+      "library": "popper.js@2.11.8",
+      "destination": "wwwroot/js/popper/"
     }
   ]
 }
