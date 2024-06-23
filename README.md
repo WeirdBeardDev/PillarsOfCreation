@@ -31,7 +31,8 @@ Then on bash use `git-loglasttag` with a `> commit_message.txt` to outut the com
 * [.NET](https://dotnet.microsoft.com) 8
 * [Blazor WebAssembly 8](https://docs.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-8.0)
 * [Blazored - LocalStorage](https://www.nuget.org/packages/Blazored.LocalStorage/) v4.5.0
-* [Bootstrap](https://getbootstrap.com) 5.3.1 (via LibMan)
+* [Bootstrap](https://getbootstrap.com) 5.3.3 (via LibMan)
+* popper.js@2.11.8 (via LibMan)
 
 ### Reading the Commit History
 Commit messages should use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) with the descriptors listed below.  For the scope please use the name of the feature.
