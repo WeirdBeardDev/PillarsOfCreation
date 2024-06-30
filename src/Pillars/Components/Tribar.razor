@@ -1,11 +1,13 @@
 ﻿<div class="bg-dark container-fluid">
-    <div class="row">
-        <div class="col text-start">Start</div>
-        <div class="col text-center">Middle</div>
-        <div class="col text-end">End</div>
+    <div class="row bg-dark-subtle">
+        <div class="col text-start">@Start</div>
+        <div class="col text-center">@Middle</div>
+        <div class="col text-end">@End</div>
     </div>
 </div>
 
 @code {
-
+    [Parameter] public string Start { get; set; } = "";
+    [Parameter] public string Middle { get; set; } = "";
+    [Parameter] public string End { get; set; } = "";
 }

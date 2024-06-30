@@ -4,6 +4,7 @@ public interface IGameService
 {
     #region Properties
     Creator Creator { get; }
+    string Version { get; }
     #endregion Properties
 
     #region Methods

@@ -1,4 +1,6 @@
-﻿using Blazored.LocalStorage;
+﻿using System.Reflection;
+using Blazored.LocalStorage;
+using Wbd.Pillars.ClassLib.DataStore;
 
 namespace Wbd.Pillars.Services;
 
@@ -11,6 +13,7 @@ public class GameService(ILocalStorageService storageService, ILogger<GameServic
 
     #region Properties
     public Creator Creator { get; private set; } = new();
+    public string Version => $"v{Assembly.GetExecutingAssembly().GetName().Version?.ToString(3)}" ?? "unknown";
     private ILocalStorageService Storage { get; set; } = storageService;
     private ILogger Logger { get; set; } = logger;
     #endregion Properties

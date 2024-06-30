@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Wbd.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
     <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
-    <Version>0.0.0</Version>
+    <Version>0.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
