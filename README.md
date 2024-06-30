@@ -28,11 +28,11 @@ Then on bash use `git-loglasttag` with a `> commit_message.txt` to outut the com
 
 ## Implementation Information
 ### Technologies
-* [.NET](https://dotnet.microsoft.com) 8
-* [Blazor WebAssembly 8](https://docs.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-8.0)
-* [Blazored - LocalStorage](https://www.nuget.org/packages/Blazored.LocalStorage/) v4.5.0
-* [Bootstrap](https://getbootstrap.com) 5.3.3 (via LibMan)
-* popper.js@2.11.8 (via LibMan)
+* [.NET](https://dotnet.microsoft.com) @8
+* [Blazor WebAssembly](https://docs.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-8.0) @8
+* [Blazored - LocalStorage](https://www.nuget.org/packages/Blazored.LocalStorage/) @4.5.0
+* [Bootstrap](https://getbootstrap.com) @5.3.3 (via LibMan)
+* [popper.js](https://popper.js.org/docs/v2/) @2.11.8 (via LibMan)
 
 ### Reading the Commit History
 Commit messages should use [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) with the descriptors listed below.  For the scope please use the name of the feature.
@@ -55,7 +55,7 @@ Breaking changes **must** contain a line prefixed with `BREAKING CHANGE:` so [ve
 ### Feature List
 
 | Feature   | Definition                                               |
-| :------   | :------------------------------------------------------- |
+| :-------- | :------------------------------------------------------- |
 | Character | Anything dealing with the player's character             |
 | General   | Anything that doesn't fit into the other categories      |
 | Logging   | Anything dealing with logging in the game                |
@@ -65,3 +65,17 @@ Breaking changes **must** contain a line prefixed with `BREAKING CHANGE:` so [ve
 
 # Icons
 <a target="_blank" href="https://icons8.com/icon/362/trash-can">Trash Can</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+# Notes
+```html
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+        aria-haspopup="true" aria-expanded="false">Dropdown</a>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Action A</a>
+        <a class="dropdown-item" href="#">Action B</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Separated link</a>
+    </div>
+</li>
+```
