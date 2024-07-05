@@ -12,5 +12,6 @@ public interface IGameService
     Task SaveAsync();
     Task<bool> DoesSaveExistAsync();
     Task CreateSaveSlotAsync();
+    Task StartGameAsync();
     #endregion Methods
 }

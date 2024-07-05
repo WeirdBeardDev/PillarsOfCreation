@@ -54,12 +54,13 @@ Breaking changes **must** contain a line prefixed with `BREAKING CHANGE:` so [ve
 
 ### Feature List
 
-| Feature   | Definition                                               |
-| :-------- | :------------------------------------------------------- |
-| Character | Anything dealing with the player's character             |
-| General   | Anything that doesn't fit into the other categories      |
-| Logging   | Anything dealing with logging in the game                |
-| Save      | Anything dealing with the loading and saving of the game |
+| Feature   | Definition                                                            |
+| :-------- | :-------------------------------------------------------------------- |
+| Character | Anything dealing with the player's character                          |
+| Data      | Anything dealing with the data service for loading/saving of the game |
+| General   | Anything that doesn't fit into the other categories                   |
+| Logging   | Anything dealing with logging in the game                             |
+| Timer     | Anything dealing with the timer service                               |
 
 
 
