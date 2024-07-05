@@ -56,13 +56,13 @@ Breaking changes **must** contain a line prefixed with `BREAKING CHANGE:` so [ve
 
 | Feature   | Definition                                                            |
 | :-------- | :-------------------------------------------------------------------- |
-| Character | Anything dealing with the player's character                          |
-| Data      | Anything dealing with the data service for loading/saving of the game |
+| Character | Anything dealing with the player's active character                   |
+| Data      | Anything dealing with the game data                                   |
 | General   | Anything that doesn't fit into the other categories                   |
 | Logging   | Anything dealing with logging in the game                             |
+| Player    | Anything dealing with the player's account and all their characters   |
 | Timer     | Anything dealing with the timer service                               |
-
-
+| Save      | Anything dealing with the data service for loading/saving of the game |
 
 # Icons
 <a target="_blank" href="https://icons8.com/icon/362/trash-can">Trash Can</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>

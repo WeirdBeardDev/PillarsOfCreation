@@ -2,19 +2,36 @@
 
 @inject IGameService _game
 
-Player Storage: @HasPlayer &nbsp;
+<h1>Welcome to Pillars of Creation</h1>
+<br />
 
-@if (HasPlayer==false)
+@if (HasPlayer)
 {
-    <button class="btn btn-primary btn-sm" @onclick="CreatePlayerSlotAsync" type="button">Create Player Slot</button>
+    <h2>Welcome back!</h2>
+    <p>Read on for recent news and updates or click here to choose your character to play.</p>
+    <br>
+    <button class="btn btn-danger" @onclick="DeleteAllCharactersAsync">Delete All Characters</button>
 }
 else
 {
-    <br />
+    <h2>Start Your Adventure!</h2>
+    <button class="btn btn-primary" @onclick="CreatePlayerSlotAsync">Create a new character</button>
 }
-
+<br />
+<br />
+<br />
 <br />
 
+<h2>News</h2>
+<p>Here is the latest news and updates for Pillars of Creation.</p>
+<br>
+<br>
+<h3>News</h3>
+TBD
+<br>
+<br>
+<h3>Updates</h3>
+TBD
 
 @code {
     private bool HasPlayer { get; set; }
@@ -22,24 +39,29 @@ else
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
-        HasPlayer = await _game.DoesSaveExistAsync();
+        HasPlayer = await _game.Player.DoesSaveExistAsync();
         if (!HasPlayer)
         {
             Console.WriteLine($"HasPlayer: {HasPlayer}");
-            await _game.CreateSaveSlotAsync();
-            HasPlayer = true;
+            @* HasPlayer = true; *@
         }
         else
         {
-            await _game.LoadAsync();
+            @* await _game.LoadAsync(); *@
         }
         return;
     }
 
     public async void CreatePlayerSlotAsync()
     {
-        await _game.SaveAsync();
+        await _game.Player.CreateSlotsAsync();
         HasPlayer = true;
+        StateHasChanged();
+    }
+    public async void DeleteAllCharactersAsync()
+    {
+        await _game.Player.DeleteSlotsAsync();
+        HasPlayer = false;
         StateHasChanged();
     }
 }

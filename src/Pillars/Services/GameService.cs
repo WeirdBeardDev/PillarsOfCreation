@@ -5,63 +5,25 @@ using Wbd.Pillars.ClassLib.DataStore;
 
 namespace Wbd.Pillars.Services;
 
-public class GameService(ILocalStorageService storageService, ILogger<GameService> logger, IWebAssemblyHostEnvironment hostEnvironment) : IGameService
+public class GameService(SaveService saveService, ILogger<GameService> logger, IWebAssemblyHostEnvironment hostEnvironment, TimerService timer, PlayerService player) : IGameService
 {
-    // TODO Create a DataService to handle loading/saving the game
-    // TODO Create a CharacterService to handle the character data
-    // TODO Move the relevant methods from this class to the new services
-    #region Events
-    public event EventHandler OnLoad = default!;
-    public event EventHandler OnSave = default!;
-    #endregion Events
-
     #region Properties
-    public Creator Creator { get; private set; } = new();
-    public string Version => $"v{Assembly.GetExecutingAssembly().GetName().Version?.ToString(3)}{(EnvironmentName != string.Empty ? "." + EnvironmentName : "")}" ?? "unknown";
-    public TimerService Timer { get; private set; } = new();
-    private ILocalStorageService Storage { get; set; } = storageService;
     private ILogger Logger { get; set; } = logger;
     private IWebAssemblyHostEnvironment HostEnvironment { get; set; } = hostEnvironment;
-    private string EnvironmentName => HostEnvironment.IsDevelopment() ? "dev" : "";
+    private string version = Assembly.GetExecutingAssembly().GetName().Version?.ToString(3) ?? "unknown";
+    private string EnvironmentName => HostEnvironment.IsDevelopment() ? ".dev" : "";
+
+    public string Version => $"v{version}{EnvironmentName}";
+    public PlayerService Player { get; private set; } = player;
+    public SaveService SaveStorage { get; private set; } = saveService;
+    public TimerService Timer { get; private set; } = timer;
     #endregion Properties
 
     #region Methods
-    public async Task LoadAsync() => await LoadCreatorAsync();
-    public async Task SaveAsync() => await SaveCreatorAsync();
-    public async Task<bool> DoesSaveExistAsync() => await Storage.ContainKeyAsync(Data.PlayerName);
-    public async Task CreateSaveSlotAsync()
+    public void StartGame()
     {
-        Creator = new();
-        Logger.LogInformation($"New empty character created with {Creator.Characters.Count} slots.");
-        await SaveCreatorAsync();
-    }
-    public async Task StartGameAsync()
-    {
-        await LoadAsync();
-        Logger.LogInformation($"Game started, {Creator.Characters.Count} character slots in save.");
+        // TODO make sure all services are started and ready
+        Logger.LogInformation($"Game started.");
     }
     #endregion Methods
-
-    #region Helpers
-    private async Task LoadCreatorAsync()
-    {
-        var c = await Storage.GetItemAsync<Creator>(Data.PlayerName);
-        Creator = c ?? new();
-        Logger.LogInformation($"Creator loaded, {Creator.Characters.Count} character slots in save.");
-        NotifyOnLoad();
-
-        // TODO setup other pre-game services here
-
-        // Start the game timer
-        // Timer.Start();
-        // Timer.OnTick += (sender, e) => Logger.LogInformation("Timer ticked.");
-    }
-    private async Task SaveCreatorAsync()
-    {
-        await Storage.SetItemAsync<Creator>(Data.PlayerName, Creator);
-        NotifyOnSave();
-    }
-    private void NotifyOnLoad() => OnLoad?.Invoke(this, EventArgs.Empty);
-    private void NotifyOnSave() => OnSave?.Invoke(this, EventArgs.Empty);
-    #endregion Helpers
 }

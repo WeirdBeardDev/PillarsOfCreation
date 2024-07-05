@@ -3,15 +3,13 @@
 public interface IGameService
 {
     #region Properties
-    Creator Creator { get; }
     string Version { get; }
+    PlayerService Player { get; }
+    SaveService SaveStorage { get; }
+    TimerService Timer { get; }
     #endregion Properties
 
     #region Methods
-    Task LoadAsync();
-    Task SaveAsync();
-    Task<bool> DoesSaveExistAsync();
-    Task CreateSaveSlotAsync();
-    Task StartGameAsync();
+    void StartGame();
     #endregion Methods
 }

@@ -12,6 +12,11 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddBlazoredLocalStorage();
+builder.Services.AddScoped<SaveService>();
+builder.Services.AddScoped<TimerService>();
+builder.Services.AddScoped<PlayerService>();
+
+
 builder.Services.AddScoped<IGameService, GameService>();
 
 await builder.Build().RunAsync();
