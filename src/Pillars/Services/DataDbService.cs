@@ -28,16 +28,16 @@ public class DataDbService
         Items = await LoadItemsAsync();
         _logger.LogInformation($"DataDbService contains {Items.Count} items.");
     }
-    // public async Task<Item> GetItemAsync(int id)
-    // {
-    //     var item = Items.FirstOrDefault(i => i.Id == id);
-    //     if (item == null)
-    //     {
-    //         _logger.LogWarning($"Item {id} not found.");
-    //         return Items.First();
-    //     }
-    //     return item;
-    // }
+    public Item GetItem(int id)
+    {
+        var item = Items.FirstOrDefault(i => i.Id == id);
+        if (item == null)
+        {
+            _logger.LogWarning($"Item {id} not found.");
+            return Items.First();
+        }
+        return item;
+    }
     #endregion Methods
 
     #region Helpers

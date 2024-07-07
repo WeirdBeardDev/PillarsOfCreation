@@ -16,7 +16,13 @@ public class SaveService(ILocalStorageService storageService, ILogger<SaveServic
         _logger.LogInformation($"Key `{key}` found: {result}.");
         return result;
     }
-    public async Task<T> SaveAsync<T>(string key, T data)
+    public async Task<T> LoadAsync<T>(string key) where T : class, new()
+    {
+        var data = await _storage.GetItemAsync<T>(key) ?? new();
+        _logger.LogInformation($"Data loaded from {key}.");
+        return data;
+    }
+    public async Task<T> SaveAsync<T>(string key, T data) where T : class
     {
         await _storage.SetItemAsync(key, data);
         _logger.LogInformation($"Data saved to {key}.");

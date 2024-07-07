@@ -49,8 +49,8 @@
 </div>
 
 @code {
-    [Parameter] public int SlotNumber { get; set; }
-    [Parameter] public Character Character { get; set; }
+    [Parameter] public required int SlotNumber { get; set; }
+    [Parameter] public required Character Character { get; set; }
 
     private string _btnCss = string.Empty;
     private string _charName = string.Empty;

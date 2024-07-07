@@ -6,7 +6,7 @@ public interface IGameService
     string Version { get; }
     DataDbService DataDb { get; }
     PlayerService Player { get; }
-    SaveService SaveStorage { get; }
+    SaveService Storage { get; }
     TimerService Timer { get; }
     #endregion Properties
 

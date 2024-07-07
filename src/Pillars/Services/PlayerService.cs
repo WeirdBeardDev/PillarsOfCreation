@@ -29,13 +29,13 @@ public class PlayerService(SaveService saveService, ILogger<PlayerService> logge
     }
     public async Task<Player> LoadPlayerAsync()
     {
-        // Player = await _saveService.GetItemAsync<Player>(Data.PlayerName) ?? new();
+        Player = await _saveService.LoadAsync<Player>(Data.PlayerName);
         _logger.LogInformation($"Player loaded, {Player.Characters.Count} character slots in save.");
         return Player;
     }
     public async Task SavePlayerAsync()
     {
-        // await _saveService.SetItemAsync(Data.PlayerName, Player);
+        await _saveService.SaveAsync<Player>(Data.PlayerName, Player);
         _logger.LogInformation($"Player saved, {Player.Characters.Count} character slots in save.");
     }
     #endregion Methods

@@ -16,7 +16,7 @@ public class GameService(SaveService saveService, ILogger<GameService> logger, I
     public string Version => $"v{version}{EnvironmentName}";
     public DataDbService DataDb { get; private set; } = dataDb;
     public PlayerService Player { get; private set; } = player;
-    public SaveService SaveStorage { get; private set; } = saveService;
+    public SaveService Storage { get; private set; } = saveService;
     public TimerService Timer { get; private set; } = timer;
     #endregion Properties
 

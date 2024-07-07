@@ -1,8 +1,0 @@
-﻿@using Microsoft.AspNetCore.Components.WebAssembly.Hosting
-@inject IWebAssemblyHostEnvironment _hostEnv
-
-@EnvironmentName()
-
-@code {
-    private string EnvironmentName() => _hostEnv.IsDevelopment() ? "DEV" : "";
-}
