@@ -5,7 +5,7 @@ using Wbd.Pillars.ClassLib.DataStore;
 
 namespace Wbd.Pillars.Services;
 
-public class GameService(SaveService saveService, ILogger<GameService> logger, IWebAssemblyHostEnvironment hostEnvironment, TimerService timer, PlayerService player) : IGameService
+public class GameService(SaveService saveService, ILogger<GameService> logger, IWebAssemblyHostEnvironment hostEnvironment, TimerService timer, PlayerService player, DataDbService dataDb) : IGameService
 {
     #region Properties
     private ILogger Logger { get; set; } = logger;
@@ -14,14 +14,16 @@ public class GameService(SaveService saveService, ILogger<GameService> logger, I
     private string EnvironmentName => HostEnvironment.IsDevelopment() ? ".dev" : "";
 
     public string Version => $"v{version}{EnvironmentName}";
+    public DataDbService DataDb { get; private set; } = dataDb;
     public PlayerService Player { get; private set; } = player;
     public SaveService SaveStorage { get; private set; } = saveService;
     public TimerService Timer { get; private set; } = timer;
     #endregion Properties
 
     #region Methods
-    public void StartGame()
+    public async Task StartGameAsync()
     {
+        await DataDb.LoadDbAsync();
         // TODO make sure all services are started and ready
         Logger.LogInformation($"Game started.");
     }

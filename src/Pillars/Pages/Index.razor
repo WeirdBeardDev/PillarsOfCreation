@@ -19,6 +19,7 @@ else
 }
 <br />
 <br />
+<button class="btn btn-primary" @onclick="StartGame">Start Game</button>
 <br />
 <br />
 
@@ -63,5 +64,11 @@ TBD
         await _game.Player.DeleteSlotsAsync();
         HasPlayer = false;
         StateHasChanged();
+    }
+
+    // TEMP 
+    public async void StartGame()
+    {
+        await _game.StartGameAsync();
     }
 }
