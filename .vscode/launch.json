@@ -5,9 +5,16 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "blazorwasm",
-            "name": "Launch and Debug Blazor WASM",
-            "request": "launch"
+            "name": "Launch Pillars",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/src/Pillars/Pillars.csproj",
+        },
+        {
+            "name": "Launch AppHost",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/src/PillarsOfCreation.AppHost/PillarsOfCreation.AppHost.csproj",
         }
     ]
 }
