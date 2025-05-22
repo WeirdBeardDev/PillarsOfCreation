@@ -5,12 +5,6 @@
 		},
 		{
 			"path": "src/Pillars"
-		},
-		{
-			"path": "src/PillarsOfCreation.AppHost"
-		},
-		{
-			"path": "src/PillarsOfCreation.ServiceDefaults"
 		}
 	],
 	"settings": {
