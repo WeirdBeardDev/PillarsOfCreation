@@ -12,8 +12,8 @@
   <ItemGroup>
     <PackageReference Include="Blazor.Extensions.Logging" Version="2.0.4" />
     <PackageReference Include="Blazored.LocalStorage" Version="4.5.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.0" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.5" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.175" />
     <PackageReference Include="System.Private.Uri" Version="4.3.2" />
     <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
@@ -29,6 +29,10 @@
     <Using Include="Wbd.Pillars.ClassLib" />
     <Using Include="Wbd.Pillars.ClassLib.Player" />
     <Using Include="Wbd.Pillars.Services" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DevTools\DevTools.csproj" />
   </ItemGroup>
 
 </Project>
