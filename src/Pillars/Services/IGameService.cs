@@ -4,7 +4,7 @@ public interface IGameService
 {
     #region Properties
     string Version { get; }
-    DataDbService DataDb { get; }
+    DataService Data { get; }
     PlayerService Player { get; }
     SaveService Storage { get; }
     TimerService Timer { get; }

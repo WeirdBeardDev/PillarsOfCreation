@@ -1,0 +1,22 @@
+@if (HasPlayer)
+{
+    <h2>Welcome back!</h2>
+    <button class="btn btn-primary" @onclick="() => OnSelectExisting.InvokeAsync()">Select Existing Character</button>
+    <button class="btn btn-secondary" @onclick="() => OnCreateNew.InvokeAsync()">Create New Character</button>
+}
+else
+{
+    <h2>Start Your Adventure!</h2>
+    <p>An idle-ish game where you explore space, mine materials, craft items, and build a gateway to the stars.</p>
+    <button class="btn btn-primary" @onclick="() => OnCreateNew.InvokeAsync()">Create New Character</button>
+}
+
+<br />
+<hr />
+<News />
+
+@code {
+    [Parameter] public bool HasPlayer { get; set; }
+    [Parameter] public EventCallback OnSelectExisting { get; set; }
+    [Parameter] public EventCallback OnCreateNew { get; set; }
+}

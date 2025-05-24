@@ -1,74 +1,64 @@
 ﻿@page "/"
+@using Wbd.Pillars.Components.Home;
+@using Wbd.Pillars.Components.Character;
 
 @inject IGameService _game
 
 <h1>Welcome to Pillars of Creation</h1>
 <br />
 
-@if (HasPlayer)
+@switch (PageState)
 {
-    <h2>Welcome back!</h2>
-    <p>Read on for recent news and updates or click here to choose your character to play.</p>
-    <br>
-    <button class="btn btn-danger" @onclick="DeleteAllCharactersAsync">Delete All Characters</button>
-    <button class="btn btn-primary" @onclick="StartGame">Start Game</button>
+    case LandingPageState.FirstVisit:
+        <LandingOptions HasPlayer="@HasPlayer" OnSelectExisting="ShowLoadingPlayer" OnCreateNew="ShowCreatingPlayer" />
+        break;
+    case LandingPageState.CreatingPlayer:
+        <CharacterCreation OnBack="ShowFirstVisit" OnCreate="StartGame" />
+        break;
+    case LandingPageState.LoadingPlayer:
+        <CharacterSelection OnBack="ShowFirstVisit" OnSelect="StartGame" />
+        break;
 }
-else
-{
-    <h2>Start Your Adventure!</h2>
-    <button class="btn btn-primary" @onclick="CreatePlayerSlotAsync">Create a new character</button>
-}
-<br />
-<br />
-<br />
-<br />
-
-<h2>News</h2>
-<p>Here is the latest news and updates for Pillars of Creation.</p>
-<br>
-<br>
-<h3>News</h3>
-TBD
-<br>
-<br>
-<h3>Updates</h3>
-TBD
 
 @code {
+    private enum LandingPageState
+    {
+        FirstVisit,
+        CreatingPlayer,
+        LoadingPlayer
+    }
     private bool HasPlayer { get; set; }
+    private LandingPageState PageState { get; set; } = LandingPageState.FirstVisit;
 
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
         HasPlayer = await _game.Player.DoesSaveExistAsync();
-        if (!HasPlayer)
-        {
-            Console.WriteLine($"HasPlayer: {HasPlayer}");
-            @* HasPlayer = true; *@
-        }
-        else
-        {
-            @* await _game.LoadAsync(); *@
-        }
+        Console.WriteLine($"HasPlayer: {HasPlayer}");
+
         return;
     }
 
-    public async void CreatePlayerSlotAsync()
+    private void ShowFirstVisit()
     {
-        await _game.Player.CreateSlotsAsync();
-        HasPlayer = true;
+        PageState = LandingPageState.FirstVisit;
         StateHasChanged();
     }
-    public async void DeleteAllCharactersAsync()
+    private void ShowCreatingPlayer()
     {
-        await _game.Player.DeleteSlotsAsync();
-        HasPlayer = false;
+        PageState = LandingPageState.CreatingPlayer;
+        StateHasChanged();
+    }
+    private void ShowLoadingPlayer()
+    {
+        PageState = LandingPageState.LoadingPlayer;
         StateHasChanged();
     }
 
-    // TEMP
-    public async void StartGame()
+    public async Task StartGame(PlayerCharacter character)
     {
         await _game.StartGameAsync();
+        // Navigate to the game page or update state as needed
+        Console.WriteLine("Game started!");
     }
 }

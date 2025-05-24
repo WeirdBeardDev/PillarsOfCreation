@@ -1,8 +1,7 @@
 ﻿<div class="card mb-3">
     <div class="row g-0">
         <div class="col-md-4">
-            <img src="@($"/img/{Character.ImageFileName}")" class="img-fluid rounded-start" width="200" height="200"
-                alt="Image of @Character.Name">
+            <img src="@($"/img/{Character.ImageFileName}")" class="img-fluid rounded-start" width="200" height="200" alt="Image of @Character.Name">
         </div>
         <div class="col-md-8 d-flex flex-column">
             <div class="card-body d-flex flex-column justify-content-between">
@@ -34,8 +33,7 @@
                         </div>
                         <div class="col-md-6 text-end">
                             <a href="#">
-                                <img src="/img/icons8-trash-can-32.png" class="img-fluid" width="32" height="32"
-                                    alt="Delete Character">
+                                <img src="/img/icons8-trash-can-32.png" class="img-fluid" width="32" height="32" alt="Delete Character">
                             </a>
                         </div>
                     </div>
@@ -50,7 +48,7 @@
 
 @code {
     [Parameter] public required int SlotNumber { get; set; }
-    [Parameter] public required Character Character { get; set; }
+    [Parameter] public required PlayerCharacter Character { get; set; }
 
     private string _btnCss = string.Empty;
     private string _charName = string.Empty;
@@ -59,7 +57,7 @@
     protected override void OnParametersSet()
     {
         base.OnParametersSet();
-        Character ??= new Character();
+        Character ??= new PlayerCharacter();
         _btnCss = Character.Name == Data.NewCharacterName ? "btn-primary" : "btn-success";
         _charName = Character.Name == Data.NewCharacterName ? "Create Character" : Character.Name;
         _lastPlayed = Character.LastPlayed?.ToString("g") ?? "Never";

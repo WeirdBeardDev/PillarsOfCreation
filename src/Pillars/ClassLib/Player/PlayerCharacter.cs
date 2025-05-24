@@ -3,7 +3,7 @@
 namespace Wbd.Pillars.ClassLib.Player;
 
 [Serializable]
-public class Character
+public class PlayerCharacter
 {
     public string Name { get; set; } = Data.NewCharacterName;
     public string ImageFileName { get; set; } = Data.DefaultImageFileName;

@@ -15,7 +15,7 @@ builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddScoped<SaveService>();
 builder.Services.AddScoped<TimerService>();
 builder.Services.AddScoped<PlayerService>();
-builder.Services.AddScoped<DataDbService>();
+builder.Services.AddScoped<DataService>();
 
 
 builder.Services.AddScoped<IGameService, GameService>();

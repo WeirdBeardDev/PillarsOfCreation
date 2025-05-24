@@ -3,7 +3,7 @@ namespace Wbd.Pillars.Services;
 using System.Text.Json;
 using Wbd.Pillars.ClassLib.DataStore;
 
-public class DataDbService
+public class DataService
 {
     #region Members
     private readonly ILogger _logger;
@@ -15,7 +15,7 @@ public class DataDbService
     #endregion Properties
 
     #region Ctor
-    public DataDbService(ILogger<DataDbService> logger, HttpClient http)
+    public DataService(ILogger<DataService> logger, HttpClient http)
     {
         _logger = logger;
         _http = http;
@@ -26,7 +26,7 @@ public class DataDbService
     public async Task LoadDbAsync()
     {
         Items = await LoadItemsAsync();
-        _logger.LogInformation($"DataDbService contains {Items.Count} items.");
+        _logger.LogInformation($"DataService contains {Items.Count} items.");
     }
     public Item GetItem(int id)
     {
