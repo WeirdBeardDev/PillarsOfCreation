@@ -4,6 +4,8 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Wbd.Pillars.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+    <Version>0.0.1</Version>
   </PropertyGroup>
 
 

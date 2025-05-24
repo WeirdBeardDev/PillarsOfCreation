@@ -3,6 +3,7 @@
 @using Wbd.Pillars.Components.Character;
 
 @inject IGameService _game
+@inject ILogger<Index> _logger
 
 <h1>Welcome to Pillars of Creation</h1>
 <br />
@@ -34,7 +35,7 @@
     {
         await base.OnInitializedAsync();
         HasPlayer = await _game.Player.DoesSaveExistAsync();
-        Console.WriteLine($"HasPlayer: {HasPlayer}");
+        _logger.LogInformation($"HasPlayer: {HasPlayer}");
 
         return;
     }
@@ -42,16 +43,19 @@
     private void ShowFirstVisit()
     {
         PageState = LandingPageState.FirstVisit;
+        _logger.LogInformation("Returning to first visit state.");
         StateHasChanged();
     }
     private void ShowCreatingPlayer()
     {
         PageState = LandingPageState.CreatingPlayer;
+        _logger.LogInformation("Switching to creating player state.");
         StateHasChanged();
     }
     private void ShowLoadingPlayer()
     {
         PageState = LandingPageState.LoadingPlayer;
+        _logger.LogInformation("Switching to loading player state.");
         StateHasChanged();
     }
 
@@ -59,6 +63,6 @@
     {
         await _game.StartGameAsync();
         // Navigate to the game page or update state as needed
-        Console.WriteLine("Game started!");
+        _logger.LogInformation($"Starting game with character: {character.Name}");
     }
 }
