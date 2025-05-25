@@ -2,6 +2,7 @@
 using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Wbd.Pillars.ClassLib.DataStore;
+using Wbd.Pillars.Shared;
 
 namespace Wbd.Pillars.Services;
 
@@ -11,7 +12,7 @@ public class GameService(SaveService saveService, ILogger<GameService> logger, I
     private ILogger Logger { get; set; } = logger;
     private IWebAssemblyHostEnvironment HostEnvironment { get; set; } = hostEnvironment;
     private string version = Assembly.GetExecutingAssembly().GetName().Version?.ToString(3) ?? "unknown";
-    private string EnvironmentName => HostEnvironment.IsDevelopment() ? ".dev" : "";
+    private string EnvironmentName => HostEnvironment.IsDevelopment() ? AppConstants.DevEnvSuffix : "";
 
     public string Version => $"v{version}{EnvironmentName}";
     public DataService Data { get; private set; } = dataService;

@@ -5,22 +5,41 @@
 
 <div>
     <header class="fixed-top">
-        <Tribar End=@_game.Version />
+        <Tribar End=@_gameVersion />
     </header>
     <main class="container-fluid fixed-bar-margin">
         <article class="container content px-4">
             @Body
         </article>
     </main>
-    <div class="fixed-bottom" style="bottom: 25px;">
-        <InMemoryLogViewer />
-    </div>
+    @if (_showLogVieer)
+    {
+        <div class="fixed-bottom" style="bottom: 25px;">
+            <InMemoryLogViewer />
+        </div>
+    }
     <footer class="fixed-bottom">
         <Tribar Start=@_gameSignature End=@_links />
     </footer>
 </div>
 
 @code {
-    private string _gameSignature = $"{Data.AppName} by WeirdBeardDev";
-    private string _links = "Wiki | Discord | Reddit | Twitch | Donate";
+    private RenderFragment _gameSignature => @<span class="fw-light">
+        <strong>@Data.AppName</strong> by <a href="https://example.com" target="_blank">WeirdBeardDev</a></span>;
+    private RenderFragment _links => @<span>
+        <a href="https://example.com" target="_blank">Wiki</a> |
+        <a href="https://example.com" target="_blank">Discord</a> |
+        <a href="https://example.com" target="_blank">Reddit</a> |
+        <a href="https://example.com" target="_blank">Twitch</a> |
+        <a href="https://example.com" target="_blank">Donate</a>
+    </span>;
+    private RenderFragment _gameVersion => @<GameVersionDisplay Version=@_game.Version OnDevClick="ToggleLogViewer" />;
+    private bool _showLogVieer;
+
+    private bool IsDevVersion => _game.Version.EndsWith(AppConstants.DevEnvSuffix, StringComparison.OrdinalIgnoreCase);
+    private void ToggleLogViewer()
+    {
+        _showLogVieer = !_showLogVieer;
+        StateHasChanged();
+    }
 }

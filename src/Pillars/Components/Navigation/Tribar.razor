@@ -7,7 +7,7 @@
 </div>
 
 @code {
-    [Parameter] public string Start { get; set; } = "";
-    [Parameter] public string Middle { get; set; } = "";
-    [Parameter] public string End { get; set; } = "";
+    [Parameter] public RenderFragment? Start { get; set; }
+    [Parameter] public RenderFragment? Middle { get; set; }
+    [Parameter] public RenderFragment? End { get; set; }
 }

@@ -1,0 +1,23 @@
+<span>
+    @if (IsDevVersion)
+    {
+        @VersionWithoutSuffix
+        <button type="button" class="btn btn-link btn-sm p-0 align-baseline text-warning" @onclick="HandleDevClick">
+            @AppConstants.DevEnvSuffix
+        </button>
+    }
+    else
+    {
+        @Version
+    }
+</span>
+
+@code {
+    [Parameter] public string Version { get; set; } = "";
+    [Parameter] public EventCallback OnDevClick { get; set; }
+
+    private bool IsDevVersion => Version.EndsWith(AppConstants.DevEnvSuffix, StringComparison.OrdinalIgnoreCase);
+    private string VersionWithoutSuffix => Version[..^AppConstants.DevEnvSuffix.Length];
+
+    private Task HandleDevClick() => OnDevClick.InvokeAsync();
+}
