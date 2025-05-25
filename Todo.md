@@ -14,13 +14,13 @@
 
 ## Feature List
 
-| Feature   | Definition                                                            |
-| :-------- | :-------------------------------------------------------------------- |
-| Character | Anything dealing with the player's active character                   |
-| Data      | Anything dealing with the game data                                   |
-| DevTools  | Any tool that helps with development                                  |
-| General   | Anything that doesn't fit into the other categories                   |
-| Logging   | Anything dealing with logging in the game                             |
-| Player    | Anything dealing with the player's account and all their characters   |
-| Timer     | Anything dealing with the timer service                               |
-| Save      | Anything dealing with the data service for loading/saving of the game |
+| Feature   | Definition                                                                               |
+| :-------- | :--------------------------------------------------------------------------------------- |
+| Character | Anything dealing with the player's active character                                      |
+| Data      | Anything dealing with the game data                                                      |
+| DevTools  | Any tool that helps with development                                                     |
+| General   | Anything that doesn't fit into the other categories                                      |
+| Logging   | Anything dealing with logging in the game, specifically player read logs of game actions |
+| Player    | Anything dealing with the player's account and all their characters                      |
+| Timer     | Anything dealing with the timer service                                                  |
+| Save      | Anything dealing with the data service for loading/saving of the game                    |

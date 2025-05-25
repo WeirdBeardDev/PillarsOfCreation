@@ -1,0 +1,46 @@
+﻿@using Microsoft.Extensions.Logging
+@using Wbd.Pillars.DevTools.Logging
+@inject ILoggerProvider LoggerProvider
+@implements IDisposable
+
+<div class="logviewer bg-secondary p-1 rounded">
+    <h6>Log Entries (Recent At Top)</h6>
+    @if (_logProvider is null)
+    {
+        <div class="text-danger">InMemoryLoggerProvider is not registered. LogViewer is incompatible with the current logger provider.</div>
+    }
+    else
+    {
+        <div class="overflow-auto" style="max-height:200px;">
+            <ol class="mb-0 font-monospace small">
+                @foreach (var entry in _logProvider.GetAllLogEntries().Reverse())
+                {
+                    <li>@entry</li>
+                }
+            </ol>
+        </div>
+    }
+</div>
+
+@code {
+    private InMemoryLoggerProvider? _logProvider;
+
+    protected override void OnInitialized()
+    {
+        _logProvider = LoggerProvider as InMemoryLoggerProvider;
+        if (_logProvider is not null)
+        {
+            _logProvider.LogAdded += OnLogAdded;
+        }
+    }
+
+    private void OnLogAdded(object? sender, EventArgs e) => InvokeAsync(StateHasChanged);
+
+    public void Dispose()
+    {
+        if (_logProvider is not null)
+        {
+            _logProvider.LogAdded -= OnLogAdded;
+        }
+    }
+}
