@@ -3,21 +3,23 @@
 - TBD
 
 ## Current Work
-- TODO create a class for the attribute scores and refactor to use
 - TODO update `PlayerCharacter` to store name, scores, skills (TBD), starting location, inventory (TBD)
-- RESEARCH ways to use less verbose json when saving to local storage
 - DESIGN the create a character process - include first time visit, returning visits, etc.
-- TODO create 4 empty character slots if none exist
-- TODO create a basic character (name, 1 stat, image)
-- TODO display the created characters
-- TODO add `bootstrap-icons` v1.13.1 from jsDelivr using libman
-- TODO update icons to use the bootstrap-icons
-- RESEARCH ways to use a tick-based timing system, configurable so game time can run at different rates
 - end of list
 
 ## Backlog
+- RESEARCH ways to use less verbose json when saving to local storage
+- TODO create 4 empty character slots if none exist
+- TODO create a basic character (name, 1 stat, image)
+- TODO display the created characters
 - add a credits page
 - add the list of icons from the readme.md to the credits page
+- TODO add `bootstrap-icons` v1.13.1 from jsDelivr using libman
+- TODO update icons to use the bootstrap-icons
+- RESEARCH ways to use a tick-based timing system, configurable so game time can run at different rates
+- TODO build a skills system, update the `Skills` in `PlayerCharacter`
+- TODO build a location system, update the `StartingLocation` in `PlayerCharacter`
+- TODO build a item and inventory system, update the `Items` in `PlayerCharacter`
 
 ## Feature List
 

@@ -1,7 +1,7 @@
 ﻿namespace Wbd.Pillars.ClassLib.Player;
 
 [Serializable]
-public class AbilityScores(double str, double dex, double con, double intell, double wis, double per)
+public class Stats(double str, double dex, double con, double intell, double wis, double per)
 {
     public AttributeScore Strength { get; set; } = new AttributeScore(str);
     public AttributeScore Dexterity { get; set; } = new AttributeScore(dex);
