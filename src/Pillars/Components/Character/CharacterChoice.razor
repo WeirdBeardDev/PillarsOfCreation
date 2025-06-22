@@ -1,0 +1,87 @@
+﻿@using Wbd.Pillars.ClassLib.Player
+@inject PlayerService PlayerService
+@inject ILogger<CharacterChoice> _logger
+
+<h3>Choose Your Character</h3>
+
+@if (_isLoading)
+{
+    <p>Loading characters...</p>
+}
+else if (_characters.All(c => string.IsNullOrWhiteSpace(c?.Name)))
+{
+    <div class="alert alert-info">
+        No characters found. Please create a new character.
+    </div>
+    <button class="btn btn-primary" @onclick="OnCreateCharacter">Create Character</button>
+}
+else
+{
+    <div id="character-choice" class="container">
+        <div class="row">
+            @for (int i = 0; i < 4; i++)
+            {
+                <div class="col-6 mb-3">
+                    @if (!string.IsNullOrWhiteSpace(_characters[i]?.Name))
+                    {
+                        <CharacterSelector SlotNumber="@(i + 1)" Character="_characters[i]" />
+                    }
+                    else
+                    {
+                        <div class="card h-100 d-flex align-items-center justify-content-center">
+                            <div class="card-body text-center">
+                                <span class="text-muted">Empty Slot</span>
+                                <br />
+                                <button class="btn btn-sm btn-outline-primary mt-2" @onclick="OnCreateCharacter">Create Character</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+}
+
+@code {
+    private List<PlayerCharacter> _characters = new();
+    private bool _isLoading = true;
+
+    /// <summary>
+    /// Loads character slots using PlayerService on component initialization.
+    /// </summary>
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var player = await PlayerService.LoadPlayerAsync();
+            if (player?.Characters != null)
+            {
+                _characters = player.Characters;
+            }
+            // Ensure exactly 4 slots
+            while (_characters.Count < 4)
+                _characters.Add(new PlayerCharacter());
+            if (_characters.Count > 4)
+                _characters = _characters.Take(4).ToList();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Failed to load characters via PlayerService.");
+            // Fallback to empty slots
+            _characters = Enumerable.Range(0, 4).Select(_ => new PlayerCharacter()).ToList();
+        }
+        finally
+        {
+            _isLoading = false;
+        }
+    }
+
+    /// <summary>
+    /// Handler for creating a new character.
+    /// </summary>
+    private void OnCreateCharacter()
+    {
+        // Implement navigation or modal logic to create a character.
+        _logger.LogInformation("Create Character requested.");
+    }
+}

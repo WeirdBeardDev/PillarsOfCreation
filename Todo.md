@@ -9,17 +9,20 @@
 
 ## Backlog
 - RESEARCH ways to use less verbose json when saving to local storage
-- TODO create 4 empty character slots if none exist
-- TODO create a basic character (name, 1 stat, image)
-- TODO display the created characters
-- add a credits page
-- add the list of icons from the readme.md to the credits page
-- TODO add `bootstrap-icons` v1.13.1 from jsDelivr using libman
-- TODO update icons to use the bootstrap-icons
+- CREATE 4 empty character slots if none exist
+- CREATE a basic character (name, 1 stat, image)
+- VIEW display the created characters
+- CREATE add a credits page
+- CREATE add the list of icons from the readme.md to the credits page
+- ADD `bootstrap-icons` v1.13.1 from jsDelivr using libman
+- UPDATE icons to use the bootstrap-icons
 - RESEARCH ways to use a tick-based timing system, configurable so game time can run at different rates
-- TODO build a skills system, update the `Skills` in `PlayerCharacter`
-- TODO build a location system, update the `StartingLocation` in `PlayerCharacter`
-- TODO build a item and inventory system, update the `Items` in `PlayerCharacter`
+- CREATE build a skills system, update the `Skills` in `PlayerCharacter`
+- CREATE build a location system, update the `StartingLocation` in `PlayerCharacter`
+- CREATE build a item and inventory system, update the `Items` in `PlayerCharacter`
+- UPDATE on `CharacterSelector` only show the delete action if a character exists in the slot
+- RESEARCH if I want/need custom deserializtion object to support items like
+  - support both `{ "Strength": 12 }` and `{ "Strength": { "Score": 12 } }` when (de)serializing `Stats` or other items
 
 ## Feature List
 
@@ -64,15 +67,23 @@ This option is only available if at least one character exists in the save data.
 ### Create Character
 This option is only available if at least one slot is available to create a character.
 1. Change page to allow creating a new character
-2. Enter a player name
-3. Assign starter ability score points
-4. Assign starter skill points
-5. Pick starting location
+2. Show character slots
+3. Ask player to pick a slot
+4. If slot already has a player then
+   1. Ask to delete the existing player
+   2. NO: "reload" page and start over
+   3. YES: continue
+   4. Delete player from the slot
+5. Change display to create a character
+6. Enter a player name
+7. Assign starter ability score points
+8. Assign starter skill points
+9. Pick starting location
    1. Earth
    2. Moon
    3. Mars
-6. Pick a startr item pack
-7. Click "Create Character"
+10. Pick a startr item pack
+11. Click "Create Character"
    1. Validate all entries are valid
    2. Save character to `Player` and get save slot number
    3. Set `LastActiveSlot` to save slot number

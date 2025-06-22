@@ -13,6 +13,7 @@
 			"**/*.csproj.user": true,
 			"**/bin": true,
 			"**/obj": true
-		}
+		},
+		"editor.acceptSuggestionOnCommitCharacter": false
 	}
 }

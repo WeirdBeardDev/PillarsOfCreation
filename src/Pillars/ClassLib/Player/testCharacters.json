@@ -1,0 +1,63 @@
+{
+    "LastActiveSlot": 0,
+    "Characters": [
+        {
+            "Name": "Aria Swiftblade",
+            "ImageFileName": "aria.png",
+            "Stats": {
+                "Strength": {
+                    "Score": 12
+                },
+                "Dexterity": {
+                    "Score": 16
+                },
+                "Constitution": {
+                    "Score": 10
+                },
+                "Intelligence": {
+                    "Score": 14
+                },
+                "Wisdom": {
+                    "Score": 11
+                },
+                "Personality": {
+                    "Score": 13
+                }
+            },
+            "Skills": "Swordsmanship, Stealth",
+            "StartingLocation": "Eldergrove",
+            "Items": "Short Sword, Leather Armor",
+            "LastPlayed": "2024-06-22T14:30:00"
+        },
+        {
+            "Name": "Borin Stonefist",
+            "ImageFileName": "borin.png",
+            "Stats": {
+                "Strength": {
+                    "Score": 17
+                },
+                "Dexterity": {
+                    "Score": 9
+                },
+                "Constitution": {
+                    "Score": 15
+                },
+                "Intelligence": {
+                    "Score": 8
+                },
+                "Wisdom": {
+                    "Score": 12
+                },
+                "Personality": {
+                    "Score": 10
+                }
+            },
+            "Skills": "Mining, Brawling",
+            "StartingLocation": "Stonehall",
+            "Items": "Warhammer, Shield",
+            "LastPlayed": "2024-06-21T19:45:00"
+        },
+        {},
+        {}
+    ]
+}

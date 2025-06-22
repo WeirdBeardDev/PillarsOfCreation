@@ -1,7 +1,10 @@
-﻿<div class="card mb-3">
+﻿<div class="card mb-3 position-relative">
+    <a href="#" class="position-absolute top-0 start-0 m-2" title="Delete Character">
+        <img src="/img/icons8-trash-can-32.png" class="img-fluid" width="24" height="24" alt="Delete Character">
+    </a>
     <div class="row g-0">
-        <div class="col-md-4">
-            <img src="@($"/img/{Character.ImageFileName}")" class="img-fluid rounded-start" width="200" height="200" alt="Image of @Character.Name">
+        <div class="col-md-4 d-flex justify-content-center align-items-center">
+            <img src="@($"/img/portraits/{Character.ImageFileName}")" class="img-fluid rounded" alt="Image of @Character.Name">
         </div>
         <div class="col-md-8 d-flex flex-column">
             <div class="card-body d-flex flex-column justify-content-between">
@@ -28,13 +31,8 @@
                 </div>
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6 text-start">
+                        <div class="col-md text-start">
                             <p class="card-text"><small class="text-muted">Last played: @_lastPlayed</small></p>
-                        </div>
-                        <div class="col-md-6 text-end">
-                            <a href="#">
-                                <img src="/img/icons8-trash-can-32.png" class="img-fluid" width="32" height="32" alt="Delete Character">
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -59,7 +57,7 @@
         base.OnParametersSet();
         Character ??= new PlayerCharacter();
         _btnCss = Character.Name == Data.NewCharacterName ? "btn-primary" : "btn-success";
-        _charName = Character.Name == Data.NewCharacterName ? "Create Character" : Character.Name;
-        _lastPlayed = Character.LastPlayed?.ToString("g") ?? "Never";
+        _charName = Character.Name == Data.NewCharacterName ? $"Character Name {SlotNumber}" : Character.Name;
+        _lastPlayed = Character.LastPlayed?.ToString("d MMM yyyy 'at' HH:mm") ?? "Never";
     }
 }

@@ -5,6 +5,10 @@ The code should follow OOP principles, using classes and interfaces where approp
 The code should be modular, allowing for easy testing and reuse of components.
 The code suggestions should be concise and relevant to the context of the project.
 Act as a game developer and designer.
+Interact with me as a professional developer.
+Do not stroke my ego or praise me unnecessarily.
+I have over 30 years of experience in software development, so I expect high-quality code suggestions.
+I am new to Blazor WebAssembly, so I may need guidance on specific Blazor concepts.
 
 ## Naming Conventions
 The code should follow the conventions of the .NET ecosystem, particularly for Blazor WebAssembly applications.

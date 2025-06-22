@@ -8,29 +8,14 @@
 <h1>Welcome to Pillars of Creation</h1>
 <br />
 
-@switch (PageState)
-{
-    case LandingPageState.FirstVisit:
-        <LandingOptions HasPlayer="@HasPlayer" OnSelectExisting="ShowLoadingPlayer" OnCreateNew="ShowCreatingPlayer" />
-        break;
-    case LandingPageState.CreatingPlayer:
-        <CharacterCreation OnBack="ShowFirstVisit" OnCreate="StartGame" />
-        break;
-    case LandingPageState.LoadingPlayer:
-        <CharacterSelection OnBack="ShowFirstVisit" OnSelect="StartGame" />
-        break;
-}
+<LandingOptions HasPlayer="@HasPlayer" />
+
+<br />
+<hr />
+<News />
 
 @code {
-    private enum LandingPageState
-    {
-        FirstVisit,
-        CreatingPlayer,
-        LoadingPlayer
-    }
     private bool HasPlayer { get; set; }
-    private LandingPageState PageState { get; set; } = LandingPageState.FirstVisit;
-
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
@@ -38,25 +23,6 @@
         _logger.LogInformation($"HasPlayer: {HasPlayer}");
 
         return;
-    }
-
-    private void ShowFirstVisit()
-    {
-        PageState = LandingPageState.FirstVisit;
-        _logger.LogInformation("Returning to first visit state.");
-        StateHasChanged();
-    }
-    private void ShowCreatingPlayer()
-    {
-        PageState = LandingPageState.CreatingPlayer;
-        _logger.LogInformation("Switching to creating player state.");
-        StateHasChanged();
-    }
-    private void ShowLoadingPlayer()
-    {
-        PageState = LandingPageState.LoadingPlayer;
-        _logger.LogInformation("Switching to loading player state.");
-        StateHasChanged();
     }
 
     public async Task StartGame(PlayerCharacter character)
