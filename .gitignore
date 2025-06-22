@@ -5,6 +5,7 @@
 
 # Custom changes to the original .gitignore file
 src/Pillars/wwwroot/css/
+!src/Pillars/wwwroot/css/app.css
 src/Pillars/wwwroot/js/
 
 # User-specific files
