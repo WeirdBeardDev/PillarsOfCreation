@@ -7,5 +7,6 @@ public class Data
     public const string PlayerName = "Player";
     public const string NewCharacterName = "New Character";
     public const string DefaultImageFileName = "NewPlayer.png";
+    public const int MaxCharacterSlots = 4;
     #endregion General Constants
 }
