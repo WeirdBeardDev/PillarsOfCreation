@@ -57,7 +57,7 @@
         base.OnParametersSet();
         Character ??= new PlayerCharacter();
         _btnCss = Character.Name == Data.NewCharacterName ? "btn-primary" : "btn-success";
-        _charName = Character.Name == Data.NewCharacterName ? $"Character Name {SlotNumber}" : Character.Name;
+        _charName = Character.Name == Data.NewCharacterName ? $"Create New Character {SlotNumber}" : $"Play {Character.Name}";
         _lastPlayed = Character.LastPlayed?.ToString("d MMM yyyy 'at' HH:mm") ?? "Never";
     }
 }

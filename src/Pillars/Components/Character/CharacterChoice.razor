@@ -2,21 +2,19 @@
 @inject PlayerService PlayerService
 @inject ILogger<CharacterChoice> _logger
 
-<h3>Choose Your Character</h3>
 
 @if (_isLoading)
 {
     <p>Loading characters...</p>
 }
-else if (_characters.All(c => string.IsNullOrWhiteSpace(c?.Name)))
+else if (!_saveExists)
 {
-    <div class="alert alert-info">
-        No characters found. Please create a new character.
-    </div>
-    <button class="btn btn-primary" @onclick="OnCreateCharacter">Create Character</button>
+    <h3>Let's Begin</h3>
+    <button class="btn btn-primary" @onclick="OnCreatePlayerSlotsAsync">Start Your Adventure</button>
 }
 else
 {
+    <h3>Choose Your Character</h3>
     <div id="character-choice" class="container">
         <div class="row">
             @for (int i = 0; i < 4; i++)
@@ -32,7 +30,7 @@ else
                             <div class="card-body text-center">
                                 <span class="text-muted">Empty Slot</span>
                                 <br />
-                                <button class="btn btn-sm btn-outline-primary mt-2" @onclick="OnCreateCharacter">Create Character</button>
+                                <button class="btn btn-sm btn-outline-primary mt-2" @onclick="OnCreatePlayerSlotsAsync">Create Character</button>
                             </div>
                         </div>
                     }
@@ -45,43 +43,58 @@ else
 @code {
     private List<PlayerCharacter> _characters = new();
     private bool _isLoading = true;
+    private bool _saveExists = false;
 
     /// <summary>
     /// Loads character slots using PlayerService on component initialization.
     /// </summary>
     protected override async Task OnInitializedAsync()
     {
+        await LoadCharactersAsync();
+    }
+
+    /// <summary>
+    /// Loads player and character data, ensuring exactly four slots.
+    /// </summary>
+    private async Task LoadCharactersAsync()
+    {
         try
         {
-            var player = await PlayerService.LoadPlayerAsync();
-            if (player?.Characters != null)
+            _saveExists = await PlayerService.DoesSaveExistAsync();
+            if (_saveExists)
             {
-                _characters = player.Characters;
+                _logger.LogInformation("Player save exists, loading characters.");
+                var player = await PlayerService.LoadPlayerAsync();
+                var loaded = player?.Characters ?? new List<PlayerCharacter>();
+                // Ensure exactly Data.MaxCharacterSlots
+                _characters = loaded.Take(Data.MaxCharacterSlots).ToList();
+                while (_characters.Count < Data.MaxCharacterSlots)
+                    _characters.Add(new PlayerCharacter());
             }
-            // Ensure exactly 4 slots
-            while (_characters.Count < 4)
-                _characters.Add(new PlayerCharacter());
-            if (_characters.Count > 4)
-                _characters = _characters.Take(4).ToList();
+            else
+            {
+                _characters = Enumerable.Range(0, Data.MaxCharacterSlots).Select(_ => new PlayerCharacter()).ToList();
+            }
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Failed to load characters via PlayerService.");
-            // Fallback to empty slots
-            _characters = Enumerable.Range(0, 4).Select(_ => new PlayerCharacter()).ToList();
+            _characters = Enumerable.Range(0, Data.MaxCharacterSlots).Select(_ => new PlayerCharacter()).ToList();
         }
         finally
         {
             _isLoading = false;
+            StateHasChanged();
         }
     }
 
     /// <summary>
-    /// Handler for creating a new character.
+    /// Handler for creating new player slots.
     /// </summary>
-    private void OnCreateCharacter()
+    private async Task OnCreatePlayerSlotsAsync()
     {
-        // Implement navigation or modal logic to create a character.
-        _logger.LogInformation("Create Character requested.");
+        _logger.LogInformation("Create player slots requested.");
+        await PlayerService.CreateSlotsAsync();
+        await LoadCharactersAsync();
     }
 }
