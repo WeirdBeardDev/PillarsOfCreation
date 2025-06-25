@@ -12,4 +12,5 @@ public class PlayerCharacter
     public string StartingLocation { get; set; } = string.Empty;
     public string Items { get; set; } = string.Empty;
     public DateTime? LastPlayed { get; set; } = null;
+    public bool ContainsCharacter => !string.IsNullOrEmpty(Name) && Name != Data.NewCharacterName && !string.IsNullOrWhiteSpace(ImageFileName) && Stats != null;
 }
